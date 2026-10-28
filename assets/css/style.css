@@ -274,6 +274,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--cinnamon); 
 .signup-btn[disabled] { opacity: .6; cursor: wait; }
 .signup-note { font-size: 13px; color: var(--sand-deep); margin: 14px 0 0; opacity: .8; }
 .signup-msg { min-height: 1.4em; margin: 8px 0 0; font-size: 14px; color: #F6C9A8; }
+.signup-captcha { margin-top: 6px; border-radius: 999px; }
 .signup-done { border-top: 1px solid rgba(244,236,225,.3); padding-top: 24px; max-width: 520px; }
 .signup-done .display { font-size: 2.2rem; color: var(--sand); margin-bottom: .3em; }
 .signup-done p:last-child { color: var(--sand-deep); }
