@@ -78,18 +78,9 @@
     const btn = form.querySelector("button[type=submit]");
     const email = form.querySelector("input[name=EMAIL]");
     const done = form.parentElement.querySelector(".signup-done");
-    const captcha = form.querySelector(".signup-captcha");
     const say = (text) => { msg.textContent = text; };
 
-    email.addEventListener("input", () => { email.removeAttribute("aria-invalid"); say(""); captcha.hidden = true; });
-
-    // When the audience has reCAPTCHA on, Mailchimp refuses background sign-ups. A real click
-    // posts the same details to Mailchimp's own page in a new tab, where the visitor ticks the box.
-    captcha.addEventListener("click", () => {
-      HTMLFormElement.prototype.submit.call(form);
-      captcha.hidden = true;
-      say("Finish in the Mailchimp tab, then check your inbox to confirm ✺");
-    });
+    email.addEventListener("input", () => { email.removeAttribute("aria-invalid"); say(""); });
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -118,11 +109,6 @@
         const tmp = document.createElement("div");
         tmp.innerHTML = String(res.msg || "");
         const text = tmp.textContent.replace(/^\d+\s*-\s*/, "");
-        if (/captcha|robot/i.test(text)) {
-          say("One last step: Mailchimp just needs to check you're not a robot.");
-          captcha.hidden = false;
-          return;
-        }
         say(/already subscribed/i.test(text) ? "You're already in the circle. Thank you ✺" : text || "Something went wrong. Please try again.");
       };
       btn.disabled = true;

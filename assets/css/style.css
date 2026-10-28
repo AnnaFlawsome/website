@@ -16,6 +16,8 @@
 }
 
 * { box-sizing: border-box; }
+/* Keep the hidden attribute stronger than component display rules (e.g. .btn). */
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -258,7 +260,8 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--cinnamon); 
 .perks li { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--sand); }
 .perks li::before { content: "✺"; color: var(--ember); font-style: normal; font-size: .9rem; margin-right: 12px; }
 .signup { max-width: 520px; }
-.signup-fields { display: grid; grid-template-columns: 1fr 1.3fr; gap: 20px; margin-bottom: 26px; }
+.signup-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 26px; }
+.signup-fields .field-wide { grid-column: 1 / -1; }
 @media (max-width: 560px) { .signup-fields { grid-template-columns: 1fr; } }
 .field span { display: block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand-deep); margin-bottom: 4px; }
 .newsletter .field input {
@@ -274,7 +277,6 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--cinnamon); 
 .signup-btn[disabled] { opacity: .6; cursor: wait; }
 .signup-note { font-size: 13px; color: var(--sand-deep); margin: 14px 0 0; opacity: .8; }
 .signup-msg { min-height: 1.4em; margin: 8px 0 0; font-size: 14px; color: #F6C9A8; }
-.signup-captcha { margin-top: 6px; border-radius: 999px; }
 .signup-done { border-top: 1px solid rgba(244,236,225,.3); padding-top: 24px; max-width: 520px; }
 .signup-done .display { font-size: 2.2rem; color: var(--sand); margin-bottom: .3em; }
 .signup-done p:last-child { color: var(--sand-deep); }
