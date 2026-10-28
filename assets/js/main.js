@@ -133,6 +133,21 @@
     });
   });
 
+  // YouTube: load the player only when the visitor presses play (faster page, no tracking before).
+  document.querySelectorAll("a[data-youtube]").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${link.dataset.youtube}?autoplay=1&rel=0`;
+      iframe.title = link.getAttribute("aria-label").replace(/^Play video: /, "");
+      iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      iframe.allowFullscreen = true;
+      link.replaceChildren(iframe);
+      link.removeAttribute("href");
+      link.style.cursor = "default";
+    }, { once: true });
+  });
+
   // Slow-motion playback for videos marked with data-speed.
   document.querySelectorAll("video[data-speed]").forEach((v) => {
     const speed = parseFloat(v.dataset.speed) || 1;
