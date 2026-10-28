@@ -1,0 +1,28 @@
+# Static site: no build step, publish the folder as it is.
+[build]
+  publish = "."
+
+# Keep the local preview helper off the live site.
+[[redirects]]
+  from = "/.claude/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Photos, video and fonts rarely change, so browsers can keep them for a year.
+# When a file is replaced, give it a new name (as with hero-30s-720.mp4).
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

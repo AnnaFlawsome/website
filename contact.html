@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · Flawsome Wellness</title>
+  <meta name="description" content="Get in touch with Anna Giunta about mentorship, retreats, team programmes, music or press.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div data-header></div>
+
+  <main>
+    <section class="section">
+      <div class="wrap split" style="align-items:start">
+        <div class="reveal">
+          <span class="eyebrow">Contact</span>
+          <h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">Let's connect</h1>
+          <p class="tagline">Tell me a little about you and what's calling. I'll reply personally.</p>
+          <ul class="clean" style="margin:2rem 0">
+            <li><a href="mailto:anna@flawsomeyogawellness.com">anna@flawsomeyogawellness.com</a></li>
+            <li><a href="https://wa.me/393288585419">WhatsApp +39 328 85 85 419</a></li>
+            <li><a href="https://www.instagram.com/anna_flawsomeyoga" rel="noopener">Instagram @anna_flawsomeyoga</a></li>
+          </ul>
+          <img class="photo wide" src="assets/img/beach-dance.jpg" alt="Anna dancing in the waves" style="aspect-ratio:4/3;object-position:50% 30%">
+        </div>
+
+        <form class="form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you.html">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden"><label>Leave empty <input name="bot-field"></label></p>
+          <div class="row">
+            <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+            <div><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required></div>
+          </div>
+          <div>
+            <label for="topic">I'm interested in</label>
+            <select id="topic" name="topic">
+              <option value="mentorship">1:1 mentorship</option>
+              <option value="love">The L.O.V.E. method</option>
+              <option value="voice">Magnetic Voice + Mantra Muse</option>
+              <option value="retreat">Retreats &amp; immersions</option>
+              <option value="kirtan">Kirtan &amp; sound circles</option>
+              <option value="teams">Team &amp; leadership programmes</option>
+              <option value="music">Music &amp; bookings</option>
+              <option value="press">Press</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div><label for="message">Your message</label><textarea id="message" name="message" rows="7" required></textarea></div>
+          <label class="consent"><input type="checkbox" name="consent" required> I agree that Anna may use these details to reply to me.</label>
+          <div><button class="btn" type="submit">Send message</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer></div>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Preselect the topic when a page links here with ?topic=...
+    const topic = new URLSearchParams(location.search).get("topic");
+    const select = document.getElementById("topic");
+    if (topic && select.querySelector(`option[value="${CSS.escape(topic)}"]`)) select.value = topic;
+  </script>
+</body>
+</html>
