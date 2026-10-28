@@ -11,6 +11,21 @@
     ["press.html", "Press"],
     ["contact.html", "Contact"],
   ];
+  // Social profiles, drawn as line icons to match the site's thin, elegant style.
+  const socials = [
+    ["Instagram", "https://www.instagram.com/anna_flawsomeyoga/",
+      '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/>'],
+    ["YouTube", "https://www.youtube.com/channel/UCixPqD3kfCwduJTCKSnRu8w",
+      '<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.4v5.2l4.4-2.6z" fill="currentColor" stroke="none"/>'],
+    ["Facebook", "https://www.facebook.com/flawsomeyogaberlin/",
+      '<path d="M15 4.5h-2a3 3 0 0 0-3 3v13M7.5 11h7"/>'],
+  ];
+  const socialIcons = `<div class="social">${socials.map(([name, href, svg]) =>
+    `<a href="${href}" rel="noopener" target="_blank" aria-label="${name}" title="${name}">` +
+    `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${svg}</svg></a>`
+  ).join("")}</div>`;
+  document.querySelectorAll("[data-social]").forEach((el) => { el.outerHTML = socialIcons; });
+
   const current = location.pathname.split("/").pop() || "index.html";
   const link = ([href, label]) =>
     `<a href="${href}"${href === current ? ' aria-current="page"' : ""}>${label}</a>`;
@@ -36,6 +51,7 @@
             <div>
               <a class="brand" href="index.html" style="color:var(--sand)">FLAWSOME <span>✺</span> WELLNESS</a>
               <p class="footer-quote" style="margin-top:20px">Live heart-based. Embody the frequency of love.</p>
+              ${socialIcons}
             </div>
             <div>
               <h4>Explore</h4>
@@ -47,9 +63,6 @@
                 <li><a href="mailto:anna@flawsomeyogawellness.com">anna@flawsomeyogawellness.com</a></li>
                 <li><a href="https://wa.me/393288585419">WhatsApp +39 328 85 85 419</a></li>
                 <li><a href="https://calendly.com/annaflawsome" rel="noopener">Book a discovery call</a></li>
-                <li><a href="https://www.instagram.com/anna_flawsomeyoga/" rel="noopener">Instagram</a></li>
-                <li><a href="https://www.youtube.com/channel/UCixPqD3kfCwduJTCKSnRu8w" rel="noopener">YouTube</a></li>
-                <li><a href="https://www.facebook.com/flawsomeyogaberlin/" rel="noopener">Facebook</a></li>
                 <li><a href="press.html">Press kit</a></li>
               </ul>
             </div>
