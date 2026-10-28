@@ -71,6 +71,55 @@
     });
   }
 
+  // Mailchimp signup: send through Mailchimp's JSONP endpoint so the visitor stays on the page.
+  // Without JavaScript the form still posts to Mailchimp in a new tab.
+  document.querySelectorAll("form[data-mailchimp]").forEach((form) => {
+    const msg = form.querySelector(".signup-msg");
+    const btn = form.querySelector("button[type=submit]");
+    const email = form.querySelector("input[name=EMAIL]");
+    const done = form.parentElement.querySelector(".signup-done");
+    const say = (text) => { msg.textContent = text; };
+
+    email.addEventListener("input", () => { email.removeAttribute("aria-invalid"); say(""); });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        email.setAttribute("aria-invalid", "true");
+        say("Please enter a valid email address.");
+        email.focus();
+        return;
+      }
+      const cb = "mc_cb_" + Date.now();
+      const params = new URLSearchParams(new FormData(form));
+      params.set("c", cb);
+      const script = document.createElement("script");
+      const cleanup = () => { delete window[cb]; script.remove(); btn.disabled = false; btn.textContent = "Join the circle"; };
+      const timer = setTimeout(() => { cleanup(); say("Something went wrong. Please try again in a moment."); }, 12000);
+
+      window[cb] = (res) => {
+        clearTimeout(timer);
+        cleanup();
+        if (res.result === "success") {
+          form.hidden = true;
+          if (done) done.hidden = false;
+          return;
+        }
+        // Mailchimp messages can contain HTML and a "0 - " field prefix; show plain text only.
+        const tmp = document.createElement("div");
+        tmp.innerHTML = String(res.msg || "");
+        const text = tmp.textContent.replace(/^\d+\s*-\s*/, "");
+        say(/already subscribed/i.test(text) ? "You're already in the circle. Thank you ✺" : text || "Something went wrong. Please try again.");
+      };
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      say("");
+      script.src = form.action.replace("/post?", "/post-json?") + "&" + params.toString();
+      script.onerror = () => { clearTimeout(timer); cleanup(); say("Couldn't reach the mailing list. Please try again."); };
+      document.body.appendChild(script);
+    });
+  });
+
   // Slow-motion playback for videos marked with data-speed.
   document.querySelectorAll("video[data-speed]").forEach((v) => {
     const speed = parseFloat(v.dataset.speed) || 1;

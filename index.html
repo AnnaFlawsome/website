@@ -130,18 +130,37 @@
     <section class="newsletter bg-olive" id="love-notes">
       <img src="assets/img/heart-sun.jpg" alt="Hands forming a heart around the setting sun over the sea">
       <div class="inner">
-        <span class="eyebrow">Love notes</span>
+        <span class="eyebrow">✺ Love notes ✺</span>
         <h2>Receive my love notes</h2>
-        <p class="lead">Seasonal letters, upcoming circles and retreats, and new music, straight to your inbox.</p>
-        <form class="form" name="love-notes" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you.html">
-          <input type="hidden" name="form-name" value="love-notes">
-          <p class="hidden"><label>Leave empty <input name="bot-field"></label></p>
-          <div class="row">
-            <input type="text" name="first-name" placeholder="First name" aria-label="First name" required>
-            <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+        <p class="lead">Letters from the heart, a few times a season.</p>
+        <ul class="perks">
+          <li>Practices for voice, body and heart</li>
+          <li>First access to retreats and circles</li>
+          <li>New music from Anna Amrita</li>
+        </ul>
+        <!-- Posts to Mailchimp (audience "You are Flawsome"); main.js submits it in the page and shows the reply. -->
+        <form class="signup" data-mailchimp
+              action="https://flawsomeyogawellness.us19.list-manage.com/subscribe/post?u=e8297d9feaf8e81e45d71e259&amp;id=4d6e72eeb4&amp;f_id=005db8e7f0"
+              method="post" target="_blank" novalidate>
+          <div class="signup-fields">
+            <label class="field">
+              <span>First name</span>
+              <input type="text" name="FNAME" autocomplete="given-name" placeholder="Your first name">
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required>
+            </label>
           </div>
-          <div><button class="btn light" type="submit">Join the circle</button></div>
+          <div aria-hidden="true" class="hidden"><input type="text" name="b_e8297d9feaf8e81e45d71e259_4d6e72eeb4" tabindex="-1" value=""></div>
+          <button class="btn signup-btn" type="submit">Join the circle</button>
+          <p class="signup-note">No noise, only love. Unsubscribe any time.</p>
+          <p class="signup-msg" role="status" aria-live="polite"></p>
         </form>
+        <div class="signup-done" hidden>
+          <p class="display">Welcome to the circle ✺</p>
+          <p>Check your inbox and confirm your email to receive your first love note.</p>
+        </div>
       </div>
     </section>
 
