@@ -206,6 +206,17 @@ h3 { font-size: 1.6rem; }
 blockquote { margin: 0; font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.4; }
 blockquote cite { display: block; margin-top: 1.2rem; font-family: var(--sans); font-style: normal; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--cinnamon); }
 
+/* Testimonials */
+.quotes { display: grid; gap: 16px; }
+.quote { margin: 0; background: var(--paper); border-left: 2px solid var(--cinnamon); padding: 20px 22px; }
+.quote blockquote { font-size: 1.25rem; line-height: 1.45; }
+.quote figcaption { margin-top: 10px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--cinnamon); }
+.price-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.price-list li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.price-list li span:last-child { font-family: var(--serif); font-size: 1.2rem; color: var(--cinnamon); white-space: nowrap; }
+.bg-olive .price-list li { border-color: rgba(244,236,225,.25); }
+.bg-olive .price-list li span:last-child { color: var(--sand); }
+
 /* Lists */
 .clean { list-style: none; padding: 0; margin: 0; }
 .clean li { padding: 14px 0; border-bottom: 1px solid var(--line); }

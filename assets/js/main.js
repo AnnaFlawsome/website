@@ -46,8 +46,10 @@
               <ul>
                 <li><a href="mailto:anna@flawsomeyogawellness.com">anna@flawsomeyogawellness.com</a></li>
                 <li><a href="https://wa.me/393288585419">WhatsApp +39 328 85 85 419</a></li>
-                <li><a href="https://www.instagram.com/anna_flawsomeyoga" rel="noopener">Instagram</a></li>
+                <li><a href="https://calendly.com/annaflawsome" rel="noopener">Book a discovery call</a></li>
+                <li><a href="https://www.instagram.com/anna_flawsomeyoga/" rel="noopener">Instagram</a></li>
                 <li><a href="https://www.youtube.com/channel/UCixPqD3kfCwduJTCKSnRu8w" rel="noopener">YouTube</a></li>
+                <li><a href="https://www.facebook.com/flawsomeyogaberlin/" rel="noopener">Facebook</a></li>
                 <li><a href="press.html">Press kit</a></li>
               </ul>
             </div>
