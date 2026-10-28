@@ -330,6 +330,20 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--cinnamon); 
 .site-footer .social a:hover { background: var(--cinnamon); border-color: var(--cinnamon); color: var(--sand); text-decoration: none; }
 main .social { margin-top: 0; }
 
+/* Three.js animation layers (assets/js/three-scene.js) */
+.has-three { position: relative; isolation: isolate; overflow: hidden; }
+.three-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+  pointer-events: none; z-index: 0; opacity: 0; transition: opacity 1.6s ease;
+}
+.three-canvas.ready { opacity: 1; }
+.has-three > .wrap,
+.hero-text.has-three > :not(.three-canvas),
+.newsletter .inner.has-three > :not(.three-canvas) { position: relative; z-index: 1; }
+/* On photo banners the dust floats above the photo and its shading, below the text. */
+.page-hero .three-canvas { z-index: 1; }
+.page-hero.has-three > .wrap { z-index: 2; }
+
 /* Reveal */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
 .reveal.in { opacity: 1; transform: none; }
