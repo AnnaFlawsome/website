@@ -60,7 +60,7 @@
             <div>
               <h4>Connect</h4>
               <ul>
-                <li><a href="mailto:anna@flawsomeyogawellness.com">anna@flawsomeyogawellness.com</a></li>
+                <li><a href="mailto:anna@flawsomewellness.com">anna@flawsomewellness.com</a></li>
                 <li><a href="https://wa.me/393288585419">WhatsApp +39 328 85 85 419</a></li>
                 <li><a href="https://calendly.com/annaflawsome" rel="noopener">Book a discovery call</a></li>
                 <li><a href="press.html">Press kit</a></li>
