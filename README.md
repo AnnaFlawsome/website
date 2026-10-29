@@ -31,7 +31,7 @@ Shared files live in `assets/`. The header and footer are added to every page by
 
 1. In Netlify choose **Add new site → Import an existing project → GitHub** and pick this repository.
 2. Leave the build command empty and set the publish directory to `.` (both already come from `netlify.toml`).
-3. Under **Forms**, add an email notification so contact messages reach anna@flawsomeyogawellness.com.
+3. Under **Forms**, add an email notification so contact messages reach anna@flawsomewellness.com.
 4. Under **Domain management**, connect your domain.
 
 Every change pushed to this repository then deploys automatically.
